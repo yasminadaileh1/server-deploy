@@ -21,13 +21,13 @@ app.get('/location', (request , respone) => {
     const city = request.query.city ;
     const locationData = new Location(city, geoData);
     respone.status(200).json(locationData);
-});
-app.get('/weather', (request , respone) => {
-    const weatherData = require('./data/darksky.json');
-    const city = request.query.city ;
-    const weatherNow = new Weather(city, weatherData);
-    respone.status(200).json(weatherNow);
-});
+// });
+// app.get('/weather', (request , respone) => {
+//     const weatherData = require('./data/darksky.json');
+//     const city = request.query.city ;
+//     const weatherNow = new Weather(city, weatherData);
+//     respone.status(200).json(weatherNow);
+// });
 
 //constructor function 
 function Location ( city , geoData){
@@ -36,12 +36,12 @@ function Location ( city , geoData){
     this.latitude = geoData[0].latitude;
     this.longitude = geoData[0].longitude;
 }
-function Weather ( city , weatherData){
-    this.search_query = city;
-    this.formatted_query = weatherData[0].display_name;
-    this.latitude = weatherData[0].latitude;
-    this.longitude = weatherData[0].lon;
-}
+// function Weather ( city , weatherData){
+//     this.search_query = city;
+//     this.formatted_query = weatherData[0].display_name;
+//     this.latitude = weatherData[0].latitude;
+//     this.longitude = weatherData[0].lon;
+// }
 
 
 
